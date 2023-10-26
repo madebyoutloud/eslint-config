@@ -1,5 +1,7 @@
 
 
+## [0.1.3](https://git.outloud.dev/outloud/libraries/eslint-config/compare/v0.1.2...v0.1.3) (2023-10-26)
+
 ## 0.1.2 (2023-10-26)
 
 
