@@ -3,13 +3,6 @@ module.exports = {
   extends: ["@adonisjs/eslint-config/app"],
   plugins: ["eslint-plugin-import"],
   rules: {
-    "@typescript-eslint/consistent-type-imports": [
-      "off",
-      {
-        prefer: "type-imports",
-        fixStyle: "inline-type-imports",
-      },
-    ],
     "comma-dangle": ["error", "always-multiline"],
     yoda: "error",
     curly: "error",
@@ -21,6 +14,14 @@ module.exports = {
     "import/newline-after-import": [
       "error",
       { considerComments: true, count: 1 },
+    ],
+
+    "@typescript-eslint/consistent-type-imports": [
+      "off",
+      {
+        prefer: "type-imports",
+        fixStyle: "inline-type-imports",
+      },
     ],
   },
 };
