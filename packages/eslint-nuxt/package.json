@@ -1,0 +1,25 @@
+{
+  "name": "@outloud/eslint-nuxt",
+  "description": "ESLint config for Nuxt projects",
+  "version": "0.0.1",
+  "private": false,
+  "sideEffects": false,
+  "exports": {
+    ".": "./index.js"
+  },
+  "main": "./index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "release": "pnpm build && release-it"
+  },
+  "packageManager": "pnpm@8.6.12",
+  "peerDependencies": {
+    "eslint": "^8.48.0"
+  },
+  "dependencies": {
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@unocss/eslint-config": "^0.57.1"
+  }
+}
