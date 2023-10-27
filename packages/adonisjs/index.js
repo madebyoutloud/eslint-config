@@ -7,6 +7,15 @@ module.exports = {
     "comma-dangle": ["error", "always-multiline"],
     yoda: "error",
     curly: "error",
+    "space-before-function-paren": [
+      "error",
+      {
+        anonymous: "always",
+        named: "never",
+        asyncArrow: "always",
+      },
+    ],
+    "space-before-blocks": "error",
 
     "unicorn/filename-case": "off",
 
