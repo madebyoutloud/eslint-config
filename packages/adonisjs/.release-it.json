@@ -1,22 +1,15 @@
 {
   "gitlab": {
-    "release": true,
-    "releaseName": "v${version}"
+    "release": false,
+    "releaseName": "adonisjs@${version}"
   },
   "git": {
-    "tagName": "v${version}",
-    "commitMessage": "v${version}",
-    "tagAnnotation": "v${version}",
+    "tagName": "adonisjs@${version}",
+    "commitMessage": "adonisjs@${version}",
+    "tagAnnotation": "adonisjs@${version}",
     "requireCleanWorkingDir": false
   },
   "npm": {
     "publish": true
-  },
-  "plugins": {
-    "@release-it/conventional-changelog": {
-      "preset": "angular",
-      "infile": "CHANGELOG.md",
-      "ignoreRecommendedBump": true
-    }
   }
 }
