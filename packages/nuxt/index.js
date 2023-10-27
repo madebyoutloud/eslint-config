@@ -2,7 +2,7 @@
 module.exports = {
   extends: ["@nuxtjs/eslint-config-typescript", "@unocss"],
   rules: {
-    "no-console": ["error", { allow: ["warn", "error"] }],
+    // common
     "comma-dangle": ["error", "always-multiline"],
     yoda: "error",
     curly: "error",
@@ -22,8 +22,16 @@ module.exports = {
       },
     ],
 
+    // extra
+    "no-console": ["error", { allow: ["warn", "error"] }],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "error",
+
+    // vue
     "vue/html-button-has-type": "error",
     "vue/no-multiple-template-root": "off",
+    "vue/padding-line-between-blocks": "error",
+    "vue/padding-line-between-tags": "error",
     "vue/html-self-closing": [
       "error",
       {
@@ -41,17 +49,11 @@ module.exports = {
     "vue/define-macros-order": [
       "error",
       {
-        order: [
-          "defineOptions",
-          "defineProps",
-          "defineModel",
-          "defineEmits",
-          "defineSlots",
-          "defineExpose",
-        ],
+        order: ["defineOptions", "defineProps", "defineEmits", "defineSlots"],
       },
     ],
 
+    // unocss
     "@unocss/order": "error",
   },
 };

@@ -3,6 +3,7 @@ module.exports = {
   extends: ["@adonisjs/eslint-config/app"],
   plugins: ["eslint-plugin-import"],
   rules: {
+    // common
     "comma-dangle": ["error", "always-multiline"],
     yoda: "error",
     curly: "error",
