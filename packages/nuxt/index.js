@@ -29,6 +29,7 @@ module.exports = {
 
     // vue
     "vue/html-button-has-type": "error",
+    "vue/multi-word-component-names": "off",
     "vue/no-multiple-template-root": "off",
     "vue/padding-line-between-blocks": "error",
     "vue/padding-line-between-tags": "error",
