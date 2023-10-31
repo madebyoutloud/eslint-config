@@ -35,6 +35,8 @@ module.exports = {
     "no-console": ["error", { allow: ["warn", "error"] }],
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": "error",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": "error",
 
     // vue
     "vue/html-button-has-type": "error",
