@@ -10,6 +10,6 @@
     "requireCleanWorkingDir": false
   },
   "npm": {
-    "publish": true
+    "publish": false
   }
 }

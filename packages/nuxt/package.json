@@ -2,24 +2,33 @@
   "name": "@outloud/eslint-config-nuxt",
   "description": "ESLint config for Nuxt projects",
   "version": "0.1.6",
-  "private": false,
-  "sideEffects": false,
   "exports": {
-    ".": "./index.js"
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
   },
-  "main": "./index.js",
   "files": [
-    "index.js"
+    "dist"
   ],
   "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub",
+    "prepack": "pnpm run build",
     "release": "release-it"
   },
   "packageManager": "pnpm@8.6.12",
   "peerDependencies": {
-    "eslint": "^8.48.0"
+    "eslint": "^9"
   },
   "dependencies": {
-    "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "@unocss/eslint-config": "^0.57.1"
+    "@eslint/js": "^9.1.1",
+    "@nuxt/eslint-config": "^0.3.10",
+    "@stylistic/eslint-plugin": "^1.8.0",
+    "@unocss/eslint-config": "^0.59.4",
+    "eslint-flat-config-utils": "^0.2.4",
+    "eslint-plugin-import-x": "^0.5.0",
+    "globals": "^15.1.0",
+    "typescript-eslint": "^7.8.0"
   }
 }
