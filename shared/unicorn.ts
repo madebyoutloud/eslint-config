@@ -1,8 +1,7 @@
 // @ts-expect-error missing types
-import unicornEslint from 'eslint-plugin-unicorn';
+import unicornEslint from 'eslint-plugin-unicorn'
 import type { Linter } from 'eslint'
-
-import { Options } from './types'
+import { type Options } from './types'
 
 export default function unicorn(options: Options, base: boolean): Linter.FlatConfig[] {
   const config: Linter.FlatConfig[] = []
@@ -11,7 +10,7 @@ export default function unicorn(options: Options, base: boolean): Linter.FlatCon
     config.push({
       plugins: {
         unicorn: unicornEslint,
-      }
+      },
     })
   }
 
@@ -30,7 +29,7 @@ export default function unicorn(options: Options, base: boolean): Linter.FlatCon
       'unicorn/no-for-loop': 'error',
       'unicorn/no-instanceof-array': 'error',
       'unicorn/prefer-number-properties': 'error',
-    }
+    },
   })
 
   return config

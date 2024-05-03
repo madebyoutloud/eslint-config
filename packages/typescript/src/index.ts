@@ -7,7 +7,6 @@ import typescript from '../../../shared/typescript'
 import imports from '../../../shared/imports'
 import stylistic from '../../../shared/stylistic'
 import type { Options } from '../../../shared/types'
-import ignores from './ignores'
 
 export function createConfig(opts: Partial<Options> = {}): FlatConfigComposer<Linter.FlatConfig> {
   const options = Object.assign({}, defaultOptions, opts)
@@ -16,7 +15,6 @@ export function createConfig(opts: Partial<Options> = {}): FlatConfigComposer<Li
 
   c.append(
     gitignore({ strict: false }),
-    ignores(),
     javascript(options),
     typescript(options),
     imports(options),
