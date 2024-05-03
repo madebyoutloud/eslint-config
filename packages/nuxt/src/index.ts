@@ -6,7 +6,7 @@ import { type Options } from '../../../shared/types'
 import { defaultOptions } from '../../../shared'
 import { javascriptRules } from '../../../shared/javascript'
 import { typescriptRules } from '../../../shared/typescript'
-import stylistic from '../../../shared/stylistic'
+import stylistic, { stylisticRules } from '../../../shared/stylistic'
 import { importRules } from '../../../shared/imports'
 import { vueRules } from './vue'
 
@@ -20,7 +20,12 @@ export function createConfig(
 ): FlatConfigComposer<Linter.FlatConfig> {
   const options = Object.assign({
     unocss: true,
-  }, defaultOptions, opts)
+    nuxt: {
+      features: {
+        stylistic: true,
+      },
+    },
+  } as NuxtOptions, defaultOptions, opts)
 
   const config = createConfigForNuxt(options.nuxt)
     .override('nuxt/javascript', {
@@ -35,7 +40,10 @@ export function createConfig(
     .override('nuxt/vue/rules', {
       rules: vueRules(),
     })
-    .append(stylistic(options))
+    .append({
+      name: 'outloud/stylistic',
+      rules: stylisticRules(),
+    })
 
   if (options.unocss) {
     config.append(unocss as any)
