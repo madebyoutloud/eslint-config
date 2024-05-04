@@ -6,8 +6,6 @@ import { type Options } from './types'
 
 export function javascriptRules(options: Options): Partial<Linter.RulesRecord> {
   return {
-    'no-shadow': 'off',
-
     'eqeqeq': ['error', 'always'],
     'new-parens': ['error', 'always'],
     'no-caller': ['error'],
