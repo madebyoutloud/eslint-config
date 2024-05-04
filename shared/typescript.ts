@@ -4,6 +4,7 @@ import { type Options } from './types'
 
 export function typescriptRules(): Partial<Linter.RulesRecord> {
   return {
+    '@typescript-eslint/no-non-null-assertion': 'off',
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-explicit-any': 'warn',
