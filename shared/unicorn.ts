@@ -3,34 +3,37 @@ import unicornEslint from 'eslint-plugin-unicorn'
 import type { Linter } from 'eslint'
 import { type Options } from './types'
 
-export default function unicorn(options: Options, base: boolean): Linter.FlatConfig[] {
-  const config: Linter.FlatConfig[] = []
+export function unicornRules(): Partial<Linter.RulesRecord> {
+  return {
+    'unicorn/error-message': 'error',
+    'unicorn/no-new-array': 'error',
+    'unicorn/no-new-buffer': 'error',
+    'unicorn/no-await-expression-member': 'error',
+    'unicorn/no-for-loop': 'error',
+    'unicorn/no-instanceof-array': 'error',
+    'unicorn/prefer-module': 'error',
+    'unicorn/prefer-node-protocol': 'error',
+    'unicorn/prefer-includes': 'error',
+    'unicorn/prefer-number-properties': 'error',
+    'unicorn/prefer-string-starts-ends-with': 'error',
 
-  if (base) {
-    config.push({
+    // 'unicorn/filename-case': [
+    //   'error',
+    //   {
+    //     case: 'snakeCase',
+    //   },
+    // ],
+  }
+}
+
+export default function unicorn(options: Options): Linter.FlatConfig[] {
+  return [
+    {
+      name: 'outloud/unicorn',
       plugins: {
         unicorn: unicornEslint,
       },
-    })
-  }
-
-  config.push({
-    name: 'outloud/unicorn',
-    rules: {
-      'unicorn/prefer-module': 'error',
-      'unicorn/prefer-node-protocol': 'error',
-      'unicorn/filename-case': [
-        'error',
-        {
-          case: 'snakeCase',
-        },
-      ],
-      'unicorn/no-await-expression-member': 'error',
-      'unicorn/no-for-loop': 'error',
-      'unicorn/no-instanceof-array': 'error',
-      'unicorn/prefer-number-properties': 'error',
+      rules: unicornRules(),
     },
-  })
-
-  return config
+  ]
 }

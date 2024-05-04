@@ -7,6 +7,7 @@ import typescript from '../../../shared/typescript'
 import imports from '../../../shared/imports'
 import stylistic from '../../../shared/stylistic'
 import type { Options } from '../../../shared/types'
+import unicorn from '../../../shared/unicorn'
 import ignores from './ignores'
 
 export function createConfig(opts: Partial<Options> = {}): FlatConfigComposer<Linter.FlatConfig> {
@@ -21,6 +22,7 @@ export function createConfig(opts: Partial<Options> = {}): FlatConfigComposer<Li
     typescript(options),
     imports(options),
     stylistic(options),
+    unicorn(options),
   )
 
   return c

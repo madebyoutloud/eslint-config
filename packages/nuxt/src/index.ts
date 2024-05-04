@@ -8,6 +8,7 @@ import { javascriptRules } from '../../../shared/javascript'
 import { typescriptRules } from '../../../shared/typescript'
 import stylistic, { stylisticRules } from '../../../shared/stylistic'
 import { importRules } from '../../../shared/imports'
+import unicorn from '../../../shared/unicorn'
 import { vueRules } from './vue'
 
 interface NuxtOptions extends Options {
@@ -44,6 +45,7 @@ export function createConfig(
       name: 'outloud/stylistic',
       rules: stylisticRules(),
     })
+    .append(unicorn(options))
 
   if (options.unocss) {
     config.append(unocss as any)

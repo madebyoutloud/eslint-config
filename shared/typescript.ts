@@ -56,6 +56,7 @@ export default function typescript(options: Options): Linter.FlatConfig[] {
     ...tsEslint.configs.strict as Linter.FlatConfig[],
     {
       name: 'outloud/typescript',
+      files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts', '**/*.vue'],
       languageOptions: {
         parser: tsEslint.parser as any,
       },
