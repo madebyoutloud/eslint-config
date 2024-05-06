@@ -1,7 +1,7 @@
 {
   "name": "@outloud/eslint-config-nuxt",
   "description": "ESLint config for Nuxt projects",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -14,6 +14,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup --config ../../.config/build.ts",
     "prepack": "pnpm run build",
@@ -31,7 +34,9 @@
     "eslint-flat-config-utils": "^0.2.4",
     "eslint-plugin-import-x": "^0.5.0",
     "eslint-plugin-unicorn": "^52.0.0",
+    "eslint-plugin-vue": "^9.25.0",
     "globals": "^15.1.0",
-    "typescript-eslint": "^7.8.0"
+    "typescript-eslint": "^7.8.0",
+    "vue-eslint-parser": "^9.4.2"
   }
 }
