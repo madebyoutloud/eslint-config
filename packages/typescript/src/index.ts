@@ -10,7 +10,9 @@ import type { Options } from '../../../shared/types'
 import unicorn from '../../../shared/unicorn'
 
 export function createConfig(opts: Partial<Options> = {}): FlatConfigComposer<Linter.FlatConfig> {
-  const options = Object.assign({}, defaultOptions, opts)
+  const options = Object.assign({
+    typescript: true,
+  }, defaultOptions, opts)
 
   const c = composer()
 

@@ -18,14 +18,14 @@ export function importRules(): Partial<Linter.RulesRecord> {
 export default function imports(options: Options): Linter.FlatConfig[] {
   return [
     {
-      name: 'import',
+      name: 'outloud/import/base',
       plugins: {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         import: pluginImport as any,
       },
     },
     {
-      name: 'outloud/import',
+      name: 'outloud/import/rules',
       rules: importRules(),
     },
   ]

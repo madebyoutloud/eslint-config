@@ -29,10 +29,13 @@ export function unicornRules(): Partial<Linter.RulesRecord> {
 export default function unicorn(options: Options): Linter.FlatConfig[] {
   return [
     {
-      name: 'outloud/unicorn',
+      name: 'outloud/unicorn/base',
       plugins: {
         unicorn: unicornEslint,
       },
+    },
+    {
+      name: 'outloud/unicorn/rules',
       rules: unicornRules(),
     },
   ]

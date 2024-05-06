@@ -9,7 +9,7 @@ import { typescriptRules } from '../../../shared/typescript'
 import { stylisticRules } from '../../../shared/stylistic'
 import { importRules } from '../../../shared/imports'
 import unicorn from '../../../shared/unicorn'
-import { vueRules } from './vue'
+import { vueRules } from '../../../shared/vue'
 
 interface NuxtOptions extends Options {
   nuxt: NuxtESLintConfigOptions
@@ -39,7 +39,7 @@ export function createConfig(
       rules: importRules(),
     })
     .override('nuxt/vue/rules', {
-      rules: vueRules(),
+      rules: vueRules(options),
     })
     .append({
       name: 'outloud/stylistic',

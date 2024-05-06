@@ -4,7 +4,10 @@ import { type Options } from './types'
 
 export function stylisticRules(): Partial<Linter.RulesRecord> {
   return {
-    '@stylistic/array-bracket-newline': ['error', 'consistent'],
+    '@stylistic/array-bracket-newline': ['error', {
+      multiline: true,
+    }],
+    '@stylistic/array-bracket-spacing': ['error', 'never'],
     '@stylistic/array-element-newline': ['error', 'consistent'],
     '@stylistic/function-paren-newline': ['error', 'multiline-arguments'],
     '@stylistic/object-property-newline': ['error'],
@@ -40,7 +43,7 @@ export default function stylistic(options: Options): Linter.FlatConfig[] {
       commaDangle: 'always-multiline',
     }),
     {
-      name: 'outloud/stylistic',
+      name: 'outloud/stylistic/rules',
       rules: stylisticRules(),
     },
   ]

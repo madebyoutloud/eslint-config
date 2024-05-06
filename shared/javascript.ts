@@ -27,37 +27,28 @@ export function javascriptRules(options: Options): Partial<Linter.RulesRecord> {
 }
 
 export default function javascript(options: Options): Linter.FlatConfig[] {
-  const config: Linter.FlatConfig[] = []
-
-  config.push({
-    name: 'outloud/javascript/setup',
+  return [{
+    name: 'outloud/javascript/base',
     languageOptions: {
-      ecmaVersion: 2022,
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
         },
-        ecmaVersion: 2022,
-        sourceType: 'module',
       },
-      sourceType: 'module',
       globals: {
         ...globals.es2021,
-        ...globals.node,
+        ...(options.node ? globals.node : {}),
+        ...(options.browser ? globals.browser : {}),
       },
     },
     linterOptions: {
       reportUnusedDisableDirectives: true,
     },
-  })
-
-  config.push({
-    name: 'outloud/javascript',
+  }, {
+    name: 'outloud/javascript/rules',
     rules: {
       ...jsEslint.configs.recommended.rules,
       ...javascriptRules(options),
     },
-  })
-
-  return config
+  }]
 }

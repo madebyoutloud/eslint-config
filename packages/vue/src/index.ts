@@ -8,10 +8,11 @@ import imports from '../../../shared/imports'
 import stylistic from '../../../shared/stylistic'
 import type { Options } from '../../../shared/types'
 import unicorn from '../../../shared/unicorn'
-import ignores from './ignores'
+import vue from '../../../shared/vue'
 
 export function createConfig(opts: Partial<Options> = {}): FlatConfigComposer<Linter.FlatConfig> {
-  const options = Object.assign({
+  const options: Options = Object.assign({
+    vue: true,
     typescript: true,
   }, defaultOptions, opts)
 
@@ -19,10 +20,10 @@ export function createConfig(opts: Partial<Options> = {}): FlatConfigComposer<Li
 
   c.append(
     gitignore({ strict: false }),
-    ignores(),
     javascript(options),
     typescript(options),
     imports(options),
+    vue(options),
     stylistic(options),
     unicorn(options),
   )

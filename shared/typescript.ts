@@ -2,6 +2,10 @@ import tsEslint from 'typescript-eslint'
 import type { Linter } from 'eslint'
 import { type Options } from './types'
 
+export interface TypescriptOptions extends Options {
+  extensions?: string[]
+}
+
 export function typescriptRules(): Partial<Linter.RulesRecord> {
   return {
     '@typescript-eslint/no-non-null-assertion': 'off',
@@ -52,17 +56,30 @@ export function typescriptRules(): Partial<Linter.RulesRecord> {
   }
 }
 
-export default function typescript(options: Options): Linter.FlatConfig[] {
+export default function typescript(options: TypescriptOptions): Linter.FlatConfig[] {
+  const files = ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts']
+  options.vue && files.push('**/*.vue')
+
   return [
-    ...tsEslint.configs.recommended as Linter.FlatConfig[],
-    ...tsEslint.configs.strict as Linter.FlatConfig[],
     {
-      name: 'outloud/typescript',
-      files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts', '**/*.vue'],
+      name: 'outloud/typescript/base',
+      plugins: {
+        '@typescript-eslint': tsEslint.plugin as any,
+      },
+    },
+    {
+      name: 'outloud/typescript/rules',
+      files,
       languageOptions: {
         parser: tsEslint.parser as any,
       },
-      rules: typescriptRules(),
+      rules: {
+        ...tsEslint.configs.eslintRecommended.rules,
+        ...tsEslint.configs.recommended.at(-1)!.rules,
+        ...tsEslint.configs.strict.at(-1)!.rules,
+        ...tsEslint.configs.stylistic.at(-1)!.rules,
+        ...typescriptRules(),
+      },
     },
   ]
 }
