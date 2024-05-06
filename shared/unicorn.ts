@@ -8,7 +8,6 @@ export function unicornRules(): Partial<Linter.RulesRecord> {
     'unicorn/error-message': 'error',
     'unicorn/no-new-array': 'error',
     'unicorn/no-new-buffer': 'error',
-    'unicorn/no-await-expression-member': 'error',
     'unicorn/no-for-loop': 'error',
     'unicorn/no-instanceof-array': 'error',
     'unicorn/prefer-module': 'error',

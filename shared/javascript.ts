@@ -23,32 +23,39 @@ export function javascriptRules(options: Options): Partial<Linter.RulesRecord> {
     'max-depth': ['error', options.maxDepth],
     'max-params': ['error', options.maxParams],
     // 'complexity': ['error', options.complexity],
+    'no-shadow': [
+      'error', {
+        ignoreOnInitialization: true,
+      },
+    ],
   }
 }
 
 export default function javascript(options: Options): Linter.FlatConfig[] {
-  return [{
-    name: 'outloud/javascript/base',
-    languageOptions: {
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
+  return [
+    {
+      name: 'outloud/javascript/base',
+      languageOptions: {
+        parserOptions: {
+          ecmaFeatures: {
+            jsx: true,
+          },
+        },
+        globals: {
+          ...globals.es2021,
+          ...(options.node ? globals.node : {}),
+          ...(options.browser ? globals.browser : {}),
         },
       },
-      globals: {
-        ...globals.es2021,
-        ...(options.node ? globals.node : {}),
-        ...(options.browser ? globals.browser : {}),
+      linterOptions: {
+        reportUnusedDisableDirectives: true,
+      },
+    }, {
+      name: 'outloud/javascript/rules',
+      rules: {
+        ...jsEslint.configs.recommended.rules,
+        ...javascriptRules(options),
       },
     },
-    linterOptions: {
-      reportUnusedDisableDirectives: true,
-    },
-  }, {
-    name: 'outloud/javascript/rules',
-    rules: {
-      ...jsEslint.configs.recommended.rules,
-      ...javascriptRules(options),
-    },
-  }]
+]
 }

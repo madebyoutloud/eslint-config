@@ -9,9 +9,15 @@ export interface TypescriptOptions extends Options {
 export function typescriptRules(): Partial<Linter.RulesRecord> {
   return {
     '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-empty-interface': 'off',
     'no-shadow': 'off',
-    '@typescript-eslint/no-shadow': 'error',
-    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/no-shadow': [
+      'error', {
+      // builtinGlobals: true,
+        ignoreOnInitialization: true,
+      },
+    ],
     '@typescript-eslint/consistent-type-imports': [
       'error',
       {
@@ -19,13 +25,15 @@ export function typescriptRules(): Partial<Linter.RulesRecord> {
         fixStyle: 'inline-type-imports',
       },
     ],
-    '@typescript-eslint/no-unused-vars': ['error', {
-      args: 'after-used',
-      argsIgnorePattern: '^_',
-      ignoreRestSiblings: true,
-      vars: 'all',
-      varsIgnorePattern: '^_',
-    }],
+    '@typescript-eslint/no-unused-vars': [
+      'error', {
+        args: 'after-used',
+        argsIgnorePattern: '^_',
+        ignoreRestSiblings: true,
+        vars: 'all',
+        varsIgnorePattern: '^_',
+      },
+    ],
     '@typescript-eslint/explicit-member-accessibility': [
       'error',
       { accessibility: 'no-public' },
