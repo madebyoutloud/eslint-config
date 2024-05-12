@@ -11,9 +11,11 @@ export function vueRules(options: Options): Partial<Linter.RulesRecord> {
   return {
     'vue/multi-word-component-names': 'off',
     'vue/html-button-has-type': 'error',
-    'vue/valid-v-slot': ['error', {
-      allowModifiers: true,
-    }],
+    'vue/valid-v-slot': [
+      'error', {
+        allowModifiers: true,
+      },
+    ],
     'vue/no-unused-vars': 'error',
     'vue/html-self-closing': [
       'error',
@@ -28,13 +30,15 @@ export function vueRules(options: Options): Partial<Linter.RulesRecord> {
       },
     ],
     'vue/padding-line-between-blocks': 'error',
-    'vue/padding-line-between-tags': ['error', [
-      {
-        blankLine: 'consistent',
-        prev: '*',
-        next: '*',
-      },
-    ]],
+    'vue/padding-line-between-tags': [
+      'error', [
+        {
+          blankLine: 'consistent',
+          prev: '*',
+          next: '*',
+        },
+      ],
+    ],
     'vue/block-order': [
       'error',
       {
@@ -50,10 +54,12 @@ export function vueRules(options: Options): Partial<Linter.RulesRecord> {
 
     // style
     'vue/array-bracket-spacing': ['error', 'never'],
-    'vue/arrow-spacing': ['error', {
-      after: true,
-      before: true,
-    }],
+    'vue/arrow-spacing': [
+      'error', {
+        after: true,
+        before: true,
+      },
+    ],
     'vue/block-spacing': ['error', 'always'],
     'vue/block-tag-newline': [
       'error',
@@ -66,24 +72,30 @@ export function vueRules(options: Options): Partial<Linter.RulesRecord> {
     'vue/html-indent': ['error', options.indent],
     'vue/html-quotes': ['error', 'double'],
     'vue/comma-dangle': ['error', 'always-multiline'],
-    'vue/comma-spacing': ['error', {
-      after: true,
-      before: false,
-    }],
+    'vue/comma-spacing': [
+      'error', {
+        after: true,
+        before: false,
+      },
+    ],
     'vue/comma-style': ['error', 'last'],
     'vue/html-comment-content-spacing': [
       'error',
       'always',
       { exceptions: ['-'] },
     ],
-    'vue/key-spacing': ['error', {
-      afterColon: true,
-      beforeColon: false,
-    }],
-    'vue/keyword-spacing': ['error', {
-      after: true,
-      before: true,
-    }],
+    'vue/key-spacing': [
+      'error', {
+        afterColon: true,
+        beforeColon: false,
+      },
+    ],
+    'vue/keyword-spacing': [
+      'error', {
+        after: true,
+        before: true,
+      },
+    ],
     'vue/object-curly-newline': 'off',
     'vue/object-curly-spacing': ['error', 'always'],
     'vue/object-property-newline': [
@@ -96,11 +108,23 @@ export function vueRules(options: Options): Partial<Linter.RulesRecord> {
     'vue/require-default-prop': 'off',
     'vue/space-in-parens': ['error', 'never'],
     'vue/template-curly-spacing': 'error',
-    'vue/multiline-html-element-content-newline': ['error', {
-      ignoreWhenEmpty: true,
-      ignores: ['pre', 'textarea', 'router-link', 'RouterLink', ...INLINE_ELEMENTS],
-      allowEmptyLines: false,
-    }],
+    'vue/multiline-html-element-content-newline': [
+      'error', {
+        ignoreWhenEmpty: true,
+        ignores: ['pre', 'textarea', 'router-link', 'RouterLink', ...INLINE_ELEMENTS],
+        allowEmptyLines: false,
+      },
+    ],
+    'vue/max-attributes-per-line': [
+      'error', {
+        singleline: {
+          max: 6,
+        },
+        multiline: {
+          max: 1,
+        },
+      },
+    ],
   }
 }
 
