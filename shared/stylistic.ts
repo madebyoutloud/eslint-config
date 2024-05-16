@@ -33,6 +33,15 @@ export function stylisticRules(): Partial<Linter.RulesRecord> {
       },
     ],
     '@stylistic/one-var-declaration-per-line': ['error'],
+    '@stylistic/operator-linebreak': [
+      'error', 'after', {
+        overrides: {
+          '?': 'before',
+          ':': 'before',
+          '=': 'none',
+        },
+      },
+    ],
   }
 }
 

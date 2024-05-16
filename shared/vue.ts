@@ -30,15 +30,15 @@ export function vueRules(options: Options): Partial<Linter.RulesRecord> {
       },
     ],
     'vue/padding-line-between-blocks': 'error',
-    'vue/padding-line-between-tags': [
-      'error', [
-        {
-          blankLine: 'consistent',
-          prev: '*',
-          next: '*',
-        },
-      ],
-    ],
+    // 'vue/padding-line-between-tags': [
+    //   'error', [
+    //     {
+    //       blankLine: 'consistent',
+    //       prev: '*',
+    //       next: '*',
+    //     },
+    //   ],
+    // ],
     'vue/block-order': [
       'error',
       {
