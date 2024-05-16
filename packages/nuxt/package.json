@@ -1,7 +1,7 @@
 {
   "name": "@outloud/eslint-config-nuxt",
   "description": "ESLint config for Nuxt projects",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
