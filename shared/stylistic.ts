@@ -4,29 +4,35 @@ import { type Options } from './types'
 
 export function stylisticRules(): Partial<Linter.RulesRecord> {
   return {
-    '@stylistic/array-bracket-newline': ['error', {
-      multiline: true,
-    }],
+    '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: false }],
+    '@stylistic/array-bracket-newline': [
+      'error', {
+        multiline: true,
+      },
+    ],
     '@stylistic/array-bracket-spacing': ['error', 'never'],
     '@stylistic/array-element-newline': ['error', 'consistent'],
     '@stylistic/function-paren-newline': ['error', 'multiline-arguments'],
     '@stylistic/object-property-newline': ['error'],
     '@stylistic/function-call-argument-newline': ['error', 'consistent'],
-    '@stylistic/max-len': ['error', {
-      tabWidth: 2,
-      ignoreUrls: true,
-      ignoreStrings: true,
-      ignoreTemplateLiterals: true,
-      ignoreRegExpLiterals: true,
-      code: 100,
-    }],
+    '@stylistic/max-len': [
+      'error', {
+        tabWidth: 2,
+        ignoreUrls: true,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
+        ignoreRegExpLiterals: true,
+        code: 100,
+      },
+    ],
     '@stylistic/newline-per-chained-call': ['error', { ignoreChainWithDepth: 1 }],
-    '@stylistic/object-curly-newline': ['error', {
-      multiline: true,
-      consistent: true,
-    }],
+    '@stylistic/object-curly-newline': [
+      'error', {
+        multiline: true,
+        consistent: true,
+      },
+    ],
     '@stylistic/one-var-declaration-per-line': ['error'],
-
   }
 }
 

@@ -68,7 +68,7 @@ export function vueRules(options: Options): Partial<Linter.RulesRecord> {
         singleline: 'always',
       },
     ],
-    'vue/brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
+    'vue/brace-style': ['error', '1tbs', { allowSingleLine: false }],
     'vue/html-indent': ['error', options.indent],
     'vue/html-quotes': ['error', 'double'],
     'vue/comma-dangle': ['error', 'always-multiline'],
