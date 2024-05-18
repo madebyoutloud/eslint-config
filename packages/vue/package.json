@@ -1,7 +1,7 @@
 {
   "name": "@outloud/eslint-config-vue",
   "description": "ESLint config for Vue.js projects",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -19,8 +19,7 @@
   },
   "scripts": {
     "build": "tsup --config ../../.config/build.ts",
-    "prepack": "pnpm run build",
-    "release": "release-it"
+    "prepack": "pnpm run build"
   },
   "packageManager": "pnpm@8.6.12",
   "peerDependencies": {

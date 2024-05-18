@@ -1,0 +1,19 @@
+{
+  "gitlab": {
+    "release": false,
+    "releaseName": "v${version}"
+  },
+  "git": {
+    "tagName": "v${version}",
+    "commitMessage": "v${version}",
+    "tagAnnotation": "v${version}",
+    "requireCleanWorkingDir": false
+  },
+  "npm": {
+    "publish": false
+  },
+  "hooks": {
+    "before:bump": "pnpm build",
+    "after:bump": "./scripts/bump.sh ${version}"
+  }
+}

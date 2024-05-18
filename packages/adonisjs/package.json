@@ -1,7 +1,7 @@
 {
   "name": "@outloud/eslint-config-adonisjs",
   "description": "ESLint config for AdonisJS projects",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -16,8 +16,7 @@
   ],
   "scripts": {
     "build": "tsup --config ../../.config/build.ts",
-    "prepack": "pnpm run build",
-    "release": "release-it"
+    "prepack": "pnpm run build"
   },
   "packageManager": "pnpm@8.6.12",
   "peerDependencies": {

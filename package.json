@@ -1,6 +1,12 @@
 {
   "private": true,
   "type": "module",
+  "version": "1.1.0",
+  "scripts": {
+    "build": "pnpm --filter @outloud/* build",
+    "version": "pnpm --filter @outloud/* npm version",
+    "release": "release-it -c .config/release-it.json"
+  },
   "devDependencies": {
     "@eslint/js": "^9.1.1",
     "@outloud/eslint-config-typescript": "workspace:^",

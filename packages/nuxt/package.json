@@ -1,7 +1,7 @@
 {
   "name": "@outloud/eslint-config-nuxt",
   "description": "ESLint config for Nuxt projects",
-  "version": "1.0.13",
+  "version": "1.1.0",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -19,8 +19,7 @@
   },
   "scripts": {
     "build": "tsup --config ../../.config/build.ts",
-    "prepack": "pnpm run build",
-    "release": "release-it"
+    "prepack": "pnpm run build"
   },
   "packageManager": "pnpm@8.6.12",
   "peerDependencies": {
