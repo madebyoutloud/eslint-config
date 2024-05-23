@@ -28,10 +28,9 @@ export function createConfig(
     },
   } as NuxtOptions, defaultOptions, opts)
 
-  const config = createConfigForNuxt(options.nuxt)
-    .override('nuxt/javascript', {
-      rules: javascriptRules(options),
-    })
+  const config = createConfigForNuxt(options.nuxt).override('nuxt/javascript', {
+    rules: javascriptRules(options),
+  })
     .override('nuxt/typescript/rules', {
       rules: typescriptRules(),
     })
@@ -43,7 +42,7 @@ export function createConfig(
     })
     .append({
       name: 'outloud/stylistic',
-      rules: stylisticRules(),
+      rules: stylisticRules(options),
     })
     .append(unicorn(options))
 

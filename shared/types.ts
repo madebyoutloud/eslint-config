@@ -7,4 +7,5 @@ export interface Options {
   complexity: number
   maxDepth: number
   maxParams: number
+  maxLen: number
 }

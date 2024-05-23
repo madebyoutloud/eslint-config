@@ -5,4 +5,5 @@ export const defaultOptions: Options = {
   complexity: 7,
   maxDepth: 4,
   maxParams: 5,
+  maxLen: 120,
 }

@@ -2,7 +2,7 @@ import stylisticPlugin from '@stylistic/eslint-plugin'
 import type { Linter } from 'eslint'
 import { type Options } from './types'
 
-export function stylisticRules(): Partial<Linter.RulesRecord> {
+export function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
   return {
     '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: false }],
     '@stylistic/array-bracket-newline': [
@@ -22,10 +22,10 @@ export function stylisticRules(): Partial<Linter.RulesRecord> {
         ignoreStrings: true,
         ignoreTemplateLiterals: true,
         ignoreRegExpLiterals: true,
-        code: 100,
+        code: options.maxLen,
       },
     ],
-    '@stylistic/newline-per-chained-call': ['error', { ignoreChainWithDepth: 1 }],
+    '@stylistic/newline-per-chained-call': ['error', { ignoreChainWithDepth: 2 }],
     '@stylistic/object-curly-newline': [
       'error', {
         multiline: true,
@@ -59,7 +59,7 @@ export default function stylistic(options: Options): Linter.FlatConfig[] {
     }),
     {
       name: 'outloud/stylistic/rules',
-      rules: stylisticRules(),
+      rules: stylisticRules(options),
     },
   ]
 }
