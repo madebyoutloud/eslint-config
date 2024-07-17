@@ -13,7 +13,7 @@ export function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
     '@stylistic/array-bracket-spacing': ['error', 'never'],
     '@stylistic/array-element-newline': ['error', 'consistent'],
     '@stylistic/function-paren-newline': ['error', 'multiline-arguments'],
-    '@stylistic/object-property-newline': ['error'],
+    '@stylistic/object-property-newline': ['error', { allowAllPropertiesOnSameLine: true }],
     '@stylistic/function-call-argument-newline': ['error', 'consistent'],
     '@stylistic/max-len': [
       'error', {
