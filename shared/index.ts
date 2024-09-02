@@ -1,4 +1,4 @@
-import { type Options } from './types'
+import type { Options } from './types'
 
 export const defaultOptions: Options = {
   indent: 2,

@@ -1,6 +1,6 @@
 import stylisticPlugin from '@stylistic/eslint-plugin'
 import type { Linter } from 'eslint'
-import { type Options } from './types'
+import type { Options } from './types'
 
 export function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
   return {

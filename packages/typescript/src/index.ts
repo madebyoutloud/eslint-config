@@ -1,5 +1,5 @@
 import { type FlatConfigComposer, composer } from 'eslint-flat-config-utils'
-import { type Linter } from 'eslint'
+import type { Linter } from 'eslint'
 import gitignore from 'eslint-config-flat-gitignore'
 import { defaultOptions } from '../../../shared'
 import javascript from '../../../shared/javascript'

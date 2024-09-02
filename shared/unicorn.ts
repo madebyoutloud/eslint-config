@@ -1,7 +1,7 @@
 // @ts-expect-error missing types
 import unicornEslint from 'eslint-plugin-unicorn'
 import type { Linter } from 'eslint'
-import { type Options } from './types'
+import type { Options } from './types'
 
 export function unicornRules(): Partial<Linter.RulesRecord> {
   return {

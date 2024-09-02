@@ -5,7 +5,8 @@
   "scripts": {
     "build": "pnpm --filter @outloud/* build",
     "version": "pnpm --filter @outloud/* npm version",
-    "release": "release-it -c .config/release-it.json"
+    "release": "release-it -c .config/release-it.json",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@eslint/js": "^9.1.1",

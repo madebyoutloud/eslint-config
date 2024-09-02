@@ -1,6 +1,6 @@
 import pluginImport from 'eslint-plugin-import-x'
 import type { Linter } from 'eslint'
-import { type Options } from './types'
+import type { Options } from './types'
 
 export function importRules(): Partial<Linter.RulesRecord> {
   return {
@@ -20,7 +20,7 @@ export default function imports(options: Options): Linter.FlatConfig[] {
     {
       name: 'outloud/import/base',
       plugins: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         import: pluginImport as any,
       },
     },
