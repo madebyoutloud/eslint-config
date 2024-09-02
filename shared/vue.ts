@@ -125,6 +125,22 @@ export function vueRules(options: Options): Partial<Linter.RulesRecord> {
         },
       },
     ],
+
+    // max-len
+    '@stylistic/max-len': 'off',
+    'vue/max-len': [
+      'error', {
+        code: options.maxLen,
+        tabWidth: 2,
+        ignoreComments: true,
+        ignoreUrls: true,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
+        ignoreRegExpLiterals: true,
+        ignoreHTMLAttributeValues: true,
+        ignoreHTMLTextContents: true,
+      },
+    ],
   }
 }
 

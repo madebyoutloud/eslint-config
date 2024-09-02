@@ -23,9 +23,9 @@ export function createConfig(opts: Partial<Options> = {}): FlatConfigComposer<Li
     javascript(options),
     typescript(options),
     imports(options),
-    vue(options),
     stylistic(options),
     unicorn(options),
+    vue(options),
   )
 
   return c

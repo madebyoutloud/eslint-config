@@ -18,13 +18,6 @@ export function typescriptRules(): Partial<Linter.RulesRecord> {
         ignoreOnInitialization: true,
       },
     ],
-    '@typescript-eslint/consistent-type-imports': [
-      'error',
-      {
-        prefer: 'type-imports',
-        fixStyle: 'inline-type-imports',
-      },
-    ],
     '@typescript-eslint/no-unused-vars': [
       'error', {
         args: 'after-used',
@@ -61,6 +54,16 @@ export function typescriptRules(): Partial<Linter.RulesRecord> {
         },
       },
     ],
+    '@typescript-eslint/no-import-type-side-effects': 'error',
+
+    // type-aware
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      {
+        prefer: 'type-imports',
+        fixStyle: 'inline-type-imports',
+      },
+    ],
   }
 }
 
@@ -69,20 +72,18 @@ export default function typescript(options: TypescriptOptions): Linter.FlatConfi
   options.vue && files.push('**/*.vue')
 
   return [
-    {
-      name: 'outloud/typescript/base',
-      plugins: {
-        '@typescript-eslint': tsEslint.plugin as any,
-      },
-    },
+    tsEslint.configs.base as Linter.FlatConfig,
+    tsEslint.configs.eslintRecommended as Linter.FlatConfig,
     {
       name: 'outloud/typescript/rules',
       files,
       languageOptions: {
-        parser: tsEslint.parser as any,
+        parserOptions: {
+          projectService: true,
+          tsconfigRootDir: options.root ?? process.cwd(),
+        },
       },
       rules: {
-        ...tsEslint.configs.eslintRecommended.rules,
         ...tsEslint.configs.recommended.at(-1)!.rules,
         ...tsEslint.configs.strict.at(-1)!.rules,
         ...tsEslint.configs.stylistic.at(-1)!.rules,

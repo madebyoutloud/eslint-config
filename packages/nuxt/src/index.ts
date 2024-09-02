@@ -28,23 +28,26 @@ export function createConfig(
     },
   } as NuxtOptions, defaultOptions, opts)
 
-  const config = createConfigForNuxt(options.nuxt).override('nuxt/javascript', {
-    rules: javascriptRules(options),
-  })
+  // TODO: override with custom logic
+  const config = createConfigForNuxt(options.nuxt)
+    .override('nuxt/javascript', {
+      rules: javascriptRules(options),
+    })
     .override('nuxt/typescript/rules', {
       rules: typescriptRules(),
     })
     .override('nuxt/import/rules', {
       rules: importRules(),
     })
-    .override('nuxt/vue/rules', {
-      rules: vueRules(options),
-    })
     .append({
       name: 'outloud/stylistic',
       rules: stylisticRules(options),
     })
     .append(unicorn(options))
+    .append({
+      files: ['**/*.vue'],
+      rules: vueRules(options),
+    })
 
   if (options.unocss) {
     config.append(unocss as any)

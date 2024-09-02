@@ -17,12 +17,13 @@ export function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
     '@stylistic/function-call-argument-newline': ['error', 'consistent'],
     '@stylistic/max-len': [
       'error', {
+        code: options.maxLen,
         tabWidth: 2,
+        ignoreComments: true,
         ignoreUrls: true,
         ignoreStrings: true,
         ignoreTemplateLiterals: true,
         ignoreRegExpLiterals: true,
-        code: options.maxLen,
       },
     ],
     '@stylistic/newline-per-chained-call': ['error', { ignoreChainWithDepth: 2 }],
