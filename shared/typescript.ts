@@ -56,6 +56,11 @@ export function typescriptRules(): Partial<Linter.RulesRecord> {
     ],
     '@typescript-eslint/no-unused-expressions': 'off',
     '@typescript-eslint/no-import-type-side-effects': 'error',
+    '@typescript-eslint/no-empty-object-type': [
+      'error', {
+        allowInterfaces: 'with-single-extends',
+      },
+    ],
 
     // type-aware
     '@typescript-eslint/consistent-type-imports': [
