@@ -1,6 +1,6 @@
 import tsEslint from 'typescript-eslint'
 import type { Linter } from 'eslint'
-import { type Options } from './types'
+import type { Options } from './types'
 
 export interface TypescriptOptions extends Options {
   extensions?: string[]
@@ -54,6 +54,7 @@ export function typescriptRules(): Partial<Linter.RulesRecord> {
         },
       },
     ],
+    '@typescript-eslint/no-unused-expressions': 'off',
     '@typescript-eslint/no-import-type-side-effects': 'error',
 
     // type-aware
