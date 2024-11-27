@@ -26,7 +26,7 @@ export function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
         ignoreRegExpLiterals: true,
       },
     ],
-    '@stylistic/newline-per-chained-call': ['error', { ignoreChainWithDepth: 2 }],
+    '@stylistic/newline-per-chained-call': ['error', { ignoreChainWithDepth: options.chainDepth }],
     '@stylistic/object-curly-newline': [
       'error', {
         multiline: true,

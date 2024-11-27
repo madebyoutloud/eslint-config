@@ -8,5 +8,6 @@ export interface Options {
   maxDepth: number
   maxParams: number
   maxLen: number
+  chainDepth: number
   root?: string
 }

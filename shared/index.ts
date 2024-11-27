@@ -6,4 +6,5 @@ export const defaultOptions: Options = {
   maxDepth: 4,
   maxParams: 5,
   maxLen: 120,
+  chainDepth: 1,
 }

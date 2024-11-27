@@ -62,6 +62,8 @@ export function typescriptRules(): Partial<Linter.RulesRecord> {
       },
     ],
 
+    '@typescript-eslint/consistent-type-definitions': 'off',
+
     // type-aware
     '@typescript-eslint/consistent-type-imports': [
       'error',
