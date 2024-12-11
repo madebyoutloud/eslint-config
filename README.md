@@ -14,11 +14,28 @@ Collection of ESLint configs for various projects.
 npm install -D @outloud/eslint-config-typescript
 ```
 
-2. Import the config factory function in your `eslint.config.mjs`:
+2. Import the config factory function in your `eslint.config.js` or (`eslint.config.mjs` if your project is not ESM):
 ```js
 import { createConfig } from '@outloud/eslint-config-typescript'
 
 export default createConfig({
   // options here
 })
+```
+
+## Customization
+
+`createConfig()` returns a chainable [`FlatConfigComposer`](https://github.com/antfu/eslint-flat-config-utils#composer) instance from [`eslint-flat-config-utils`](https://github.com/antfu/eslint-flat-config-utils) which allows you to manipulate the ESLint flat config with ease. If you want to combine with other configs, you can use the `.append()` method:
+
+```ts
+import { createConfig } from '@outloud/eslint-config-typescript'
+
+export default createConfig({
+  // options here
+})
+  .append({
+    rules: {
+      '@typescript-eslint/consistent-type-definitions': 'off',
+    }
+  })
 ```
