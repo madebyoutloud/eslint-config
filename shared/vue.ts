@@ -141,6 +141,15 @@ export function vueRules(options: Options): Partial<Linter.RulesRecord> {
         ignoreHTMLTextContents: true,
       },
     ],
+
+    // filename case
+
+    'unicorn/filename-case': [
+      options.fileName ? 'error' : 'off',
+      {
+        cases: { pascalCase: true, camelCase: true },
+      },
+    ],
   }
 }
 

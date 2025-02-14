@@ -3,7 +3,7 @@ import unicornEslint from 'eslint-plugin-unicorn'
 import type { Linter } from 'eslint'
 import type { Options } from './types'
 
-export function unicornRules(): Partial<Linter.RulesRecord> {
+export function unicornRules(options: Options): Partial<Linter.RulesRecord> {
   return {
     'unicorn/error-message': 'error',
     'unicorn/no-new-array': 'error',
@@ -16,12 +16,12 @@ export function unicornRules(): Partial<Linter.RulesRecord> {
     'unicorn/prefer-number-properties': 'error',
     'unicorn/prefer-string-starts-ends-with': 'error',
 
-    // 'unicorn/filename-case': [
-    //   'error',
-    //   {
-    //     case: 'snakeCase',
-    //   },
-    // ],
+    'unicorn/filename-case': [
+      options.fileName ? 'error' : 'off',
+      {
+        case: 'snakeCase',
+      },
+    ],
   }
 }
 

@@ -7,4 +7,5 @@ export const defaultOptions: Options = {
   maxParams: 5,
   maxLen: 120,
   chainDepth: 1,
+  fileName: true,
 }

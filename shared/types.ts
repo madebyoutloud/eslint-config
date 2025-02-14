@@ -1,4 +1,5 @@
 export interface Options {
+  root?: string
   browser?: boolean
   node?: boolean
   typescript?: boolean
@@ -9,5 +10,5 @@ export interface Options {
   maxParams: number
   maxLen: number
   chainDepth: number
-  root?: string
+  fileName: boolean
 }
