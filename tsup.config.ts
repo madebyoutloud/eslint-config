@@ -5,7 +5,7 @@ export default defineConfig({
   clean: true,
   treeshake: 'smallest',
   outDir: './dist',
-  format: ['esm', 'cjs'],
+  format: ['esm'],
   dts: true,
   target: 'es2022',
   external: [
@@ -14,5 +14,8 @@ export default defineConfig({
     'eslint-plugin-format',
     '@unocss/eslint-config',
     '@prettier/plugin-xml',
+    'eslint-plugin-react',
+    'eslint-plugin-react-hooks',
+    '@next/eslint-plugin-next',
   ],
 })

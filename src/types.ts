@@ -30,6 +30,24 @@ export type FeaturesOptions = {
   vue?: boolean
 
   /**
+   * Enable React ESLint rules.
+   *
+   * Requires `eslint-plugin-react` to be installed.
+   *
+   * @default false
+   */
+  react?: boolean
+
+  /**
+   * Enable Next.js ESLint rules.
+   *
+   * Requires `@next/eslint-plugin-next` to be installed.
+   *
+   * @default false
+   */
+  next?: boolean
+
+  /**
    * Enable stylistic ESLint rules.
    *
    * @see https://eslint.style/guide/config-presets

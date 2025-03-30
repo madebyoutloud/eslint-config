@@ -28,6 +28,14 @@ export function createConfig(opts: Partial<Options> = {}): FlatConfigComposer<Li
     c.append(import('./configs/vue.js').then((module) => module.default(options)))
   }
 
+  if (options.features.react) {
+    c.append(import('./configs/react.js').then((module) => module.default(options)))
+  }
+
+  if (options.features.next) {
+    c.append(import('./configs/next.js').then((module) => module.default(options)))
+  }
+
   if (options.features.stylistic) {
     c.append(import('./configs/stylistic.js').then((module) => module.default(options)))
   }
@@ -51,7 +59,7 @@ function resolveOptions(options: UserOptions = {}): Options {
   return {
     globals: {
       version: 'es2021',
-      browser: options.features?.vue ?? false,
+      browser: options.features?.vue ?? options.features?.react ?? false,
       node: true,
       ...options.globals,
     },
