@@ -1,13 +1,36 @@
 import tsEslint from 'typescript-eslint'
 import type { Linter } from 'eslint'
-import type { Options } from './types'
+import type { Options } from '../types.js'
 
-export interface TypescriptOptions extends Options {
-  extensions?: string[]
-}
+export const parser = tsEslint.parser as any
 
 export function typescriptRules(): Partial<Linter.RulesRecord> {
   return {
+    // Include typescript eslint rules in *.vue files
+    // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/eslint-recommended.ts
+    'constructor-super': 'off', // ts(2335) & ts(2377)
+    'getter-return': 'off', // ts(2378)
+    'no-const-assign': 'off', // ts(2588)
+    'no-dupe-args': 'off', // ts(2300)
+    'no-dupe-class-members': 'off', // ts(2393) & ts(2300)
+    'no-dupe-keys': 'off', // ts(1117)
+    'no-func-assign': 'off', // ts(2539)
+    'no-import-assign': 'off', // ts(2539) & ts(2540)
+    'no-new-symbol': 'off', // ts(7009)
+    'no-obj-calls': 'off', // ts(2349)
+    'no-redeclare': 'off', // ts(2451)
+    'no-setter-return': 'off', // ts(2408)
+    'no-this-before-super': 'off', // ts(2376)
+    'no-undef': 'off', // ts(2304)
+    'no-unreachable': 'off', // ts(7027)
+    'no-unsafe-negation': 'off', // ts(2365) & ts(2360) & ts(2358)
+    'no-var': 'error', // ts transpiles let/const to var, so no need for vars any more
+    'prefer-const': 'error', // ts provides better types with const
+    'prefer-rest-params': 'error', // ts provides better types with rest args over arguments
+    'prefer-spread': 'error', // ts transpiles spread to apply, so no need for manual apply
+    'valid-typeof': 'off', // ts(2367)
+    'no-unused-vars': 'off', // ts takes care of this
+
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
@@ -63,6 +86,12 @@ export function typescriptRules(): Partial<Linter.RulesRecord> {
     ],
 
     '@typescript-eslint/consistent-type-definitions': 'off',
+    '@typescript-eslint/switch-exhaustiveness-check': 'error',
+    '@typescript-eslint/unified-signatures': [
+      'error', {
+        ignoreDifferentlyNamedParameters: true,
+      },
+    ],
 
     // type-aware
     '@typescript-eslint/consistent-type-imports': [
@@ -70,22 +99,29 @@ export function typescriptRules(): Partial<Linter.RulesRecord> {
       {
         prefer: 'type-imports',
         fixStyle: 'inline-type-imports',
+        disallowTypeAnnotations: false,
       },
     ],
   }
 }
 
-export default function typescript(options: TypescriptOptions): Linter.FlatConfig[] {
+export default function typescript(options: Options): Linter.Config[] {
   const files = ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts']
-  options.vue && files.push('**/*.vue')
+  options.features.vue && files.push('**/*.vue')
 
   return [
-    tsEslint.configs.base as Linter.FlatConfig,
-    tsEslint.configs.eslintRecommended as Linter.FlatConfig,
     {
-      name: 'outloud/typescript/rules',
+      name: 'outloud/typescript/setup',
+      plugins: {
+        '@typescript-eslint': tsEslint.plugin as any,
+      },
+    },
+    {
+      name: 'outloud/typescript',
       files,
       languageOptions: {
+        parser: tsEslint.parser as any,
+        sourceType: 'module',
         parserOptions: {
           projectService: true,
           tsconfigRootDir: options.root ?? process.cwd(),
@@ -94,7 +130,7 @@ export default function typescript(options: TypescriptOptions): Linter.FlatConfi
       rules: {
         ...tsEslint.configs.recommended.at(-1)!.rules,
         ...tsEslint.configs.strict.at(-1)!.rules,
-        ...tsEslint.configs.stylistic.at(-1)!.rules,
+        ...(options.features.stylistic ? tsEslint.configs.stylistic.at(-1)!.rules : {}),
         ...typescriptRules(),
       },
     },

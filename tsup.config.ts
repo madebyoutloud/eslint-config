@@ -8,4 +8,11 @@ export default defineConfig({
   format: ['esm', 'cjs'],
   dts: true,
   target: 'es2022',
+  external: [
+    'vue-eslint-parser',
+    'eslint-plugin-vue',
+    'eslint-plugin-format',
+    '@unocss/eslint-config',
+    '@prettier/plugin-xml',
+  ],
 })

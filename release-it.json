@@ -13,7 +13,6 @@
     "publish": false
   },
   "hooks": {
-    "before:bump": "pnpm build",
-    "after:bump": "./scripts/bump.sh ${version}"
+    "before:bump": "pnpm build"
   }
 }

@@ -1,8 +1,7 @@
-// @ts-expect-error missing types
 import jsEslint from '@eslint/js'
 import type { Linter } from 'eslint'
 import globals from 'globals'
-import { type Options } from './types'
+import type { Options } from '../types.js'
 
 export function javascriptRules(options: Options): Partial<Linter.RulesRecord> {
   return {
@@ -19,43 +18,56 @@ export function javascriptRules(options: Options): Partial<Linter.RulesRecord> {
     'no-array-constructor': ['error'],
     'yoda': 'error',
     'curly': 'error',
-    'no-multiple-empty-lines': ['error', { max: 1 }],
-    'max-depth': ['error', options.maxDepth],
-    'max-params': ['error', options.maxParams],
+
     // 'complexity': ['error', options.complexity],
     'no-shadow': [
       'error', {
         ignoreOnInitialization: true,
       },
     ],
+    'object-shorthand': 'error',
+    ...(options.features.stylistic ? stylisticRules(options) : {}),
   }
 }
 
-export default function javascript(options: Options): Linter.FlatConfig[] {
+function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
+  return {
+    'no-multiple-empty-lines': ['error', { max: 1 }],
+    'max-depth': ['error', options.style.maxDepth],
+    'max-params': ['error', options.style.maxParams],
+  }
+}
+
+export default function javascript(options: Options): Linter.Config[] {
   return [
     {
-      name: 'outloud/javascript/base',
+      name: 'outloud/javascript',
       languageOptions: {
+        ecmaVersion: 2022,
         parserOptions: {
           ecmaFeatures: {
             jsx: true,
           },
+          ecmaVersion: 2022,
+          sourceType: 'module',
         },
+        sourceType: 'module',
         globals: {
-          ...globals.es2021,
-          ...(options.node ? globals.node : {}),
-          ...(options.browser ? globals.browser : {}),
+          ...(options.globals.browser ? globals.browser : {}),
+          ...(options.globals.version ? globals[options.globals.version] : {}),
+          ...(options.globals.node ? globals.node : {}),
+          document: 'readonly',
+          navigator: 'readonly',
+          window: 'readonly',
         },
       },
       linterOptions: {
         reportUnusedDisableDirectives: true,
       },
-    }, {
-      name: 'outloud/javascript/rules',
       rules: {
         ...jsEslint.configs.recommended.rules,
         ...javascriptRules(options),
       },
     },
-]
+  ]
 }

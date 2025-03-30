@@ -1,26 +1,81 @@
 {
-  "private": true,
-  "type": "module",
+  "name": "@outloud/eslint-config",
+  "description": "ESLint config for Outloud projects.",
   "version": "1.1.7",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "pnpm --filter @outloud/* build",
-    "version": "pnpm --filter @outloud/* npm version",
-    "release": "release-it -c .config/release-it.json",
-    "lint": "eslint ."
+    "build": "tsup && rm dist/*.d.cts",
+    "prepack": "is-ci || pnpm build",
+    "release": "release-it",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
-    "@eslint/js": "^9.1.1",
-    "@outloud/eslint-config-typescript": "workspace:^",
+    "@outloud/eslint-config": "workspace:*",
     "@release-it/conventional-changelog": "^7.0.2",
-    "@stylistic/eslint-plugin": "^1.8.0",
     "@types/node": "^20.12.7",
-    "eslint": "^9.3.0",
-    "eslint-plugin-unicorn": "^52.0.0",
-    "globals": "^15.1.0",
+    "@unocss/eslint-config": "66.1.0-beta.7",
+    "eslint": "^9.23.0",
+    "eslint-plugin-format": "^1.0.1",
+    "eslint-plugin-vue": "^10.0.0",
+    "is-ci": "^4.1.0",
     "release-it": "^16.2.1",
     "tsup": "^8.0.2",
-    "typescript": "^5.4.5",
-    "typescript-eslint": "^8.3.0",
-    "vue-eslint-parser": "^9.4.2"
+    "typescript": "^5.7.3",
+    "vue-eslint-parser": "^10.1.1"
+  },
+  "dependencies": {
+    "@antfu/install-pkg": "^1.0.0",
+    "@clack/prompts": "^0.10.0",
+    "@eslint/js": "^9.23.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "eslint-config-flat-gitignore": "^2.0.0",
+    "eslint-flat-config-utils": "^2.0.1",
+    "eslint-merge-processors": "^2.0.0",
+    "eslint-plugin-check-file": "^3.1.0",
+    "eslint-plugin-import-x": "^4.9.4",
+    "eslint-plugin-regexp": "^2.7.0",
+    "eslint-plugin-unicorn": "^58.0.0",
+    "eslint-processor-vue-blocks": "^2.0.0",
+    "globals": "^16.0.0",
+    "local-pkg": "^1.1.1",
+    "typescript-eslint": "^8.28.0"
+  },
+  "peerDependencies": {
+    "@unocss/eslint-config": "*",
+    "eslint": "^9",
+    "eslint-plugin-format": "*",
+    "eslint-plugin-vue": "*",
+    "vue-eslint-parser": "*"
+  },
+  "peerDependenciesMeta": {
+    "eslint-plugin-format": {
+      "optional": true
+    },
+    "eslint-plugin-vue": {
+      "optional": true
+    },
+    "vue-eslint-parser": {
+      "optional": true
+    },
+    "@unocss/eslint-config": {
+      "optional": true
+    }
   }
 }

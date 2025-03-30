@@ -1,6 +1,6 @@
 import stylisticPlugin from '@stylistic/eslint-plugin'
 import type { Linter } from 'eslint'
-import type { Options } from './types'
+import type { Options } from '../types.js'
 
 export function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
   return {
@@ -17,7 +17,7 @@ export function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
     '@stylistic/function-call-argument-newline': ['error', 'consistent'],
     '@stylistic/max-len': [
       'error', {
-        code: options.maxLen,
+        code: options.style.maxLen,
         tabWidth: 2,
         ignoreComments: true,
         ignoreUrls: true,
@@ -26,7 +26,7 @@ export function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
         ignoreRegExpLiterals: true,
       },
     ],
-    '@stylistic/newline-per-chained-call': ['error', { ignoreChainWithDepth: options.chainDepth }],
+    '@stylistic/newline-per-chained-call': ['error', { ignoreChainWithDepth: options.style.chainDepth }],
     '@stylistic/object-curly-newline': [
       'error', {
         multiline: true,
@@ -46,11 +46,11 @@ export function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
   }
 }
 
-export default function stylistic(options: Options): Linter.FlatConfig[] {
-  return [
-    stylisticPlugin.configs.customize({
-      flat: true,
-      indent: options.indent,
+export default function stylistic(options: Options): Linter.Config[] {
+  const config = {
+    name: 'outloud/stylistic',
+    ...stylisticPlugin.configs.customize({
+      indent: options.style.indent,
       quotes: 'single',
       semi: false,
       arrowParens: true,
@@ -58,9 +58,10 @@ export default function stylistic(options: Options): Linter.FlatConfig[] {
       quoteProps: 'consistent-as-needed',
       commaDangle: 'always-multiline',
     }),
-    {
-      name: 'outloud/stylistic/rules',
-      rules: stylisticRules(options),
-    },
-  ]
+  }
+
+  config.rules ??= {}
+  Object.assign(config.rules, stylisticRules(options))
+
+  return [config]
 }
