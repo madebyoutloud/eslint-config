@@ -1,6 +1,6 @@
 {
   "name": "@outloud/eslint-config",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "ESLint config for Outloud projects.",
   "type": "module",
   "license": "MIT",
