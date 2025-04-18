@@ -11,7 +11,7 @@ export function vueRules(options: Options): Partial<Linter.RulesRecord> {
   return {
     // Deprecated in favor of 'vue/block-order'
     'vue/component-tags-order': undefined,
-    'vue/block-order': ['error', { order: ['template', 'script', 'style'] }],
+    'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
 
     'vue/multi-word-component-names': 'off',
     'vue/html-button-has-type': 'error',
@@ -33,6 +33,15 @@ export function vueRules(options: Options): Partial<Linter.RulesRecord> {
         math: 'always',
       },
     ],
+    'vue/define-props-declaration': 'error',
+    'vue/prefer-use-template-ref': 'error',
+    'vue/prefer-separate-static-class': 'error',
+    'vue/no-useless-v-bind': 'error',
+    'vue/no-useless-mustaches': 'error',
+    'vue/no-template-target-blank': 'error',
+    'vue/no-ref-object-reactivity-loss': 'error',
+
+    // style
     ...stylisticRules(options),
   }
 }
@@ -128,6 +137,10 @@ export function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
         order: ['defineOptions', 'defineProps', 'defineEmits', 'defineSlots'],
       },
     ],
+    'vue/v-on-handler-style': ['error', ['method', 'inline']],
+    'vue/prefer-true-attribute-shorthand': 'error',
+
+    // max-len
     '@stylistic/max-len': 'off',
     'vue/max-len': [
       'error', {
