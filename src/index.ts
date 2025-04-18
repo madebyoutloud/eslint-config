@@ -28,6 +28,10 @@ export function createConfig(opts: Partial<Options> = {}): FlatConfigComposer<Li
     c.append(import('./configs/vue.js').then((module) => module.default(options)))
   }
 
+  if (options.features.nuxt) {
+    c.append(import('./configs/nuxt.js').then((module) => module.default(options)))
+  }
+
   if (options.features.react) {
     c.append(import('./configs/react.js').then((module) => module.default(options)))
   }
