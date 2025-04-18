@@ -11,9 +11,13 @@ export default defineConfig({
   external: [
     'vue-eslint-parser',
     'eslint-plugin-vue',
+    '@nuxt/eslint-plugin',
+
     'eslint-plugin-format',
+
     '@unocss/eslint-config',
     '@prettier/plugin-xml',
+
     'eslint-plugin-react',
     'eslint-plugin-react-hooks',
     '@next/eslint-plugin-next',
