@@ -10,6 +10,7 @@ export default async function nxt(_options: Options): Promise<Linter.Config[]> {
 
   const configs: Linter.Config[] = [
     {
+      name: 'outloud/next',
       files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
       plugins: {
         '@next/next': pluginNext,

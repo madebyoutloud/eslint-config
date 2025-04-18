@@ -36,7 +36,7 @@ export default async function formatters(globalOptions: Options): Promise<Linter
   const prettierOptions: VendoredPrettierOptions = Object.assign(
     {
       endOfLine: 'auto',
-      printWidth: 120,
+      printWidth: globalOptions.style.maxLen,
       semi,
       singleQuote: quotes === 'single',
       tabWidth: indent,

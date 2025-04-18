@@ -85,13 +85,14 @@ export function typescriptRules(): Partial<Linter.RulesRecord> {
       },
     ],
 
-    '@typescript-eslint/consistent-type-definitions': 'off',
+    '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
     '@typescript-eslint/unified-signatures': [
       'error', {
         ignoreDifferentlyNamedParameters: true,
       },
     ],
+    '@typescript-eslint/no-unsafe-declaration-merging': 'error',
 
     // type-aware
     '@typescript-eslint/consistent-type-imports': [

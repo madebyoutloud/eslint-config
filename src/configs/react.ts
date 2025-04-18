@@ -10,6 +10,7 @@ export default async function react(_options: Options): Promise<Linter.Config[]>
 
   const configs: Linter.Config[] = [
     {
+      name: 'outloud/react',
       files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
       plugins: {
         'react': pluginReact,

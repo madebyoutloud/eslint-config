@@ -1,11 +1,5 @@
 import type { EcmaVersion } from './constants.js'
 
-export type DeepPartial<T> = T extends object ? {
-  [P in keyof T]?: DeepPartial<T[P]>;
-} : T
-
-export type Awaitable<T> = T | Promise<T>
-
 export interface Options {
   root?: string
 
@@ -17,7 +11,26 @@ export interface Options {
 export type UserOptions = DeepPartial<Options>
 
 export type FeaturesOptions = {
+  /**
+   * Enable TypeScript rules
+   *
+   * @default true
+   */
   typescript?: boolean
+
+  /**
+   * Enable stylistic ESLint rules.
+   *
+   * @see https://eslint.style/guide/config-presets
+   * @default false
+   */
+  stylistic?: boolean
+
+  /**
+   * Enable file name convention rules.
+   *
+   * @default false
+   */
   fileName?: boolean
 
   /**
@@ -28,6 +41,15 @@ export type FeaturesOptions = {
    * @default false
    */
   vue?: boolean
+
+  /**
+   * Enable Nuxt ESLint rules.
+   *
+   * Requires `@nuxt/eslint-plugin` to be installed.
+   *
+   * @default false
+   */
+  nuxt?: boolean
 
   /**
    * Enable React ESLint rules.
@@ -48,12 +70,13 @@ export type FeaturesOptions = {
   next?: boolean
 
   /**
-   * Enable stylistic ESLint rules.
+   * Enable UnoCSS ESLint rules.
    *
-   * @see https://eslint.style/guide/config-presets
+   * Requires `unocss` and `@unocss/eslint-config` to be installed.
+   *
    * @default false
    */
-  stylistic?: boolean
+  unocss?: boolean
 
   /**
    * Enable formatters to handling formatting for different file types.
@@ -63,15 +86,6 @@ export type FeaturesOptions = {
    * @default false
    */
   formatters?: false | FormattersOptions
-
-  /**
-   * Enable UnoCSS ESLint rules.
-   *
-   * Requires `unocss` and `@unocss/eslint-config` to be installed.
-   *
-   * @default false
-   */
-  unocss?: boolean
 }
 
 export type StyleOptions = {
@@ -147,3 +161,10 @@ export type FormattersOptions = {
    */
   dprintOptions?: boolean
 }
+
+// utils
+export type DeepPartial<T> = T extends object ? {
+  [P in keyof T]?: DeepPartial<T[P]>;
+} : T
+
+export type Awaitable<T> = T | Promise<T>
