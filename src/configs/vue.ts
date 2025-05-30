@@ -137,7 +137,7 @@ export function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
         order: ['defineOptions', 'defineProps', 'defineEmits', 'defineSlots'],
       },
     ],
-    'vue/v-on-handler-style': ['error', ['method', 'inline']],
+    // 'vue/v-on-handler-style': ['error', ['method', 'inline']],
     'vue/prefer-true-attribute-shorthand': 'error',
   }
 }
