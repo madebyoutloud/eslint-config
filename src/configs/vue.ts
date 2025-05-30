@@ -139,22 +139,6 @@ export function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
     ],
     'vue/v-on-handler-style': ['error', ['method', 'inline']],
     'vue/prefer-true-attribute-shorthand': 'error',
-
-    // max-len
-    '@stylistic/max-len': 'off',
-    'vue/max-len': [
-      'error', {
-        code: options.style.maxLen,
-        tabWidth: 2,
-        ignoreComments: true,
-        ignoreUrls: true,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
-        ignoreRegExpLiterals: true,
-        ignoreHTMLAttributeValues: true,
-        ignoreHTMLTextContents: true,
-      },
-    ],
   }
 }
 
