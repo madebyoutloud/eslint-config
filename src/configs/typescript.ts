@@ -124,9 +124,7 @@ export default function typescript(options: Options): Linter.Config[] {
         parser: tsEslint.parser as any,
         sourceType: 'module',
         parserOptions: {
-          projectService: {
-            allowDefaultProject: ['*.ts', '*.js', '*.mjs'],
-          },
+          projectService: true,
           tsconfigRootDir: options.root ?? process.cwd(),
         },
       },
