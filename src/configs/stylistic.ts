@@ -16,7 +16,7 @@ export function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
     '@stylistic/object-property-newline': ['error', { allowAllPropertiesOnSameLine: true }],
     '@stylistic/function-call-argument-newline': ['error', 'consistent'],
     '@stylistic/max-len': [
-      'error', {
+      'warn', {
         code: options.style.maxLen,
         tabWidth: 2,
         ignoreComments: true,
