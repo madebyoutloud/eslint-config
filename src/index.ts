@@ -1,6 +1,7 @@
 import { type FlatConfigComposer, composer } from 'eslint-flat-config-utils'
 import type { Linter } from 'eslint'
 import gitignore from 'eslint-config-flat-gitignore'
+import { isPackageExists } from 'local-pkg'
 import type { Options, UserOptions } from './types.js'
 import javascript from './configs/javascript.js'
 import imports from './configs/imports.js'
@@ -69,7 +70,7 @@ function resolveOptions(options: UserOptions = {}): Options {
     },
 
     features: {
-      typescript: true,
+      typescript: isPackageExists('typescript'),
       stylistic: true,
       // fileName: true,
       ...options.features,

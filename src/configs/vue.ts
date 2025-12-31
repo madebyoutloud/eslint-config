@@ -89,10 +89,7 @@ export function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
     'vue/keyword-spacing': ['error', { after: true, before: true }],
     'vue/object-curly-newline': 'off',
     'vue/object-curly-spacing': ['error', 'always'],
-    'vue/object-property-newline': [
-      'error',
-      { allowMultiplePropertiesPerLine: true },
-    ],
+    'vue/object-property-newline': 'error',
     'vue/one-component-per-file': 'off',
     'vue/operator-linebreak': ['error', 'before'],
     'vue/padding-line-between-blocks': ['error', 'always'],
