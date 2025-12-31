@@ -1,12 +1,7 @@
 {
-  "gitlab": {
-    "release": false,
-    "releaseName": "v${version}"
-  },
   "git": {
     "tagName": "v${version}",
-    "commitMessage": "v${version}",
-    "tagAnnotation": "v${version}",
+    "commitMessage": "chore(release): v${version}",
     "requireCleanWorkingDir": false
   },
   "npm": {
