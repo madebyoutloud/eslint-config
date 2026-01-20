@@ -78,11 +78,13 @@ function resolveOptions(options: UserOptions = {}): Options {
 
     style: {
       indent: 2,
-      maxLen: 120,
-      // complexity: 7,
-      maxDepth: 4,
+      maxLength: 120,
+      maxLines: 100,
+      complexity: 7,
+      maxDepth: 3,
       maxParams: 5,
-      chainDepth: 1,
+      maxStatements: 20,
+      chainDepth: 2,
       ...options.style,
     },
   }

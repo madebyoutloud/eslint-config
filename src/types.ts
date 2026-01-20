@@ -10,7 +10,7 @@ export interface Options {
 
 export type UserOptions = DeepPartial<Options>
 
-export type FeaturesOptions = {
+export interface FeaturesOptions {
   /**
    * Enable TypeScript rules
    *
@@ -88,22 +88,24 @@ export type FeaturesOptions = {
   formatters?: false | FormattersOptions
 }
 
-export type StyleOptions = {
+export interface StyleOptions {
   indent: number | 'tab'
-  maxLen: number
-  // complexity: number
+  complexity: number
   maxDepth: number
   maxParams: number
   chainDepth: number
+  maxLength: number
+  maxLines: number
+  maxStatements: number
 }
 
-export type GlobalsOptions = {
+export interface GlobalsOptions {
   version?: EcmaVersion
   browser?: boolean
   node?: boolean
 }
 
-export type FormattersOptions = {
+export interface FormattersOptions {
   /**
    * Enable formatting support for CSS, Less, Sass, and SCSS.
    *

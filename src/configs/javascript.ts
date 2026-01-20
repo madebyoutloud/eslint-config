@@ -35,6 +35,9 @@ function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'max-depth': ['error', options.style.maxDepth],
     'max-params': ['error', options.style.maxParams],
+    'max-lines-per-function': ['error', options.style.maxLines],
+    'max-statements': ['error', options.style.maxStatements],
+    'complexity': ['error', { max: options.style.complexity }],
   }
 }
 
