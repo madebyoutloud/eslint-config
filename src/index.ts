@@ -8,7 +8,8 @@ import imports from './configs/imports.js'
 import unicorn from './configs/unicorn.js'
 import regexp from './configs/regexp.js'
 
-export function createConfig(opts: Partial<Options> = {}): FlatConfigComposer<Linter.Config> {
+// eslint-disable-next-line max-statements, complexity
+export function createConfig(opts: UserOptions = {}): FlatConfigComposer<Linter.Config> {
   const options = resolveOptions(opts)
 
   const c = composer()

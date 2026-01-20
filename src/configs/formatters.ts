@@ -1,6 +1,16 @@
 import type { Linter } from 'eslint'
 import { ensurePackages, interopDefault, parserPlain } from '../utils.js'
-import { GLOB_CSS, GLOB_GRAPHQL, GLOB_HTML, GLOB_LESS, GLOB_MARKDOWN, GLOB_POSTCSS, GLOB_SCSS, GLOB_SVG, GLOB_XML } from '../globs.js'
+import {
+  GLOB_CSS,
+  GLOB_GRAPHQL,
+  GLOB_HTML,
+  GLOB_LESS,
+  GLOB_MARKDOWN,
+  GLOB_POSTCSS,
+  GLOB_SCSS,
+  GLOB_SVG,
+  GLOB_XML,
+} from '../globs.js'
 import type { FormattersOptions, Options } from '../types.js'
 
 type VendoredPrettierOptions = any
@@ -19,6 +29,7 @@ function mergePrettierOptions(
   }
 }
 
+// eslint-disable-next-line max-statements, max-lines-per-function, complexity
 export default async function formatters(globalOptions: Options): Promise<Linter.Config[]> {
   const options: FormattersOptions = {
     ...(globalOptions.features.formatters || {}),
@@ -36,7 +47,7 @@ export default async function formatters(globalOptions: Options): Promise<Linter
   const prettierOptions: VendoredPrettierOptions = Object.assign(
     {
       endOfLine: 'auto',
-      printWidth: globalOptions.style.maxLen,
+      printWidth: globalOptions.style.maxLength,
       semi,
       singleQuote: quotes === 'single',
       tabWidth: indent,
