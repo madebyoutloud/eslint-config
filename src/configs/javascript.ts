@@ -2,6 +2,7 @@ import jsEslint from '@eslint/js'
 import type { Linter } from 'eslint'
 import globals from 'globals'
 import type { Options } from '../types.js'
+import pluginOutloud from '../plugin/outloud.js'
 
 export function javascriptRules(options: Options): Partial<Linter.RulesRecord> {
   return {
@@ -34,7 +35,7 @@ function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
   return {
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'max-depth': ['error', options.style.maxDepth],
-    'max-params': ['error', options.style.maxParams],
+    'outloud/max-params': ['error', { max: options.style.maxParams }],
     'max-lines-per-function': ['error', options.style.maxLines],
     'max-statements': ['error', options.style.maxStatements],
     'complexity': ['error', { max: options.style.complexity }],
@@ -43,6 +44,12 @@ function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
 
 export default function javascript(options: Options): Linter.Config[] {
   return [
+    {
+      name: 'outloud/javascript/setup',
+      plugins: {
+        outloud: pluginOutloud,
+      },
+    },
     {
       name: 'outloud/javascript',
       languageOptions: {

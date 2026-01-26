@@ -8,7 +8,7 @@ import imports from './configs/imports.js'
 import unicorn from './configs/unicorn.js'
 import regexp from './configs/regexp.js'
 
-// eslint-disable-next-line max-statements, complexity
+// eslint-disable-next-line max-statements
 export function createConfig(opts: UserOptions = {}): FlatConfigComposer<Linter.Config> {
   const options = resolveOptions(opts)
 
@@ -83,7 +83,7 @@ function resolveOptions(options: UserOptions = {}): Options {
       maxLines: 100,
       complexity: 7,
       maxDepth: 3,
-      maxParams: 5,
+      maxParams: 4,
       maxStatements: 20,
       chainDepth: 2,
       ...options.style,
