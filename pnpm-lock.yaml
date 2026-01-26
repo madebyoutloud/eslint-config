@@ -14,6 +14,9 @@ importers:
       '@clack/prompts':
         specifier: ^0.10.0
         version: 0.10.0
+      '@eslint-community/eslint-utils':
+        specifier: ^4.9.1
+        version: 4.9.1(eslint@9.23.0(jiti@2.4.2))
       '@eslint/js':
         specifier: ^9.23.0
         version: 9.23.0
@@ -303,8 +306,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@eslint-community/eslint-utils@4.5.1':
-    resolution: {integrity: sha512-soEIOALTfTK6EjmKMMoLugwaP0rzkad90iIWd1hMO9ARkSAyjfMfkRRhLvD5qH7vvM0Cg72pieUfR6yh6XxC4w==}
+  '@eslint-community/eslint-utils@4.9.1':
+    resolution: {integrity: sha512-phrYmNiYppR7znFEdqgfWHXR6NCkZEK7hwWDHZUjit/2/U0r6XvkDl0SYnoM51Hq7FhCGdLDT6zxCCOY1hexsQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
@@ -3442,7 +3445,7 @@ snapshots:
   '@esbuild/win32-x64@0.25.1':
     optional: true
 
-  '@eslint-community/eslint-utils@4.5.1(eslint@9.23.0(jiti@2.4.2))':
+  '@eslint-community/eslint-utils@4.9.1(eslint@9.23.0(jiti@2.4.2))':
     dependencies:
       eslint: 9.23.0(jiti@2.4.2)
       eslint-visitor-keys: 3.4.3
@@ -3841,7 +3844,7 @@ snapshots:
 
   '@typescript-eslint/utils@8.28.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2)':
     dependencies:
-      '@eslint-community/eslint-utils': 4.5.1(eslint@9.23.0(jiti@2.4.2))
+      '@eslint-community/eslint-utils': 4.9.1(eslint@9.23.0(jiti@2.4.2))
       '@typescript-eslint/scope-manager': 8.28.0
       '@typescript-eslint/types': 8.28.0
       '@typescript-eslint/typescript-estree': 8.28.0(typescript@5.8.2)
@@ -4771,7 +4774,7 @@ snapshots:
 
   eslint-plugin-regexp@2.7.0(eslint@9.23.0(jiti@2.4.2)):
     dependencies:
-      '@eslint-community/eslint-utils': 4.5.1(eslint@9.23.0(jiti@2.4.2))
+      '@eslint-community/eslint-utils': 4.9.1(eslint@9.23.0(jiti@2.4.2))
       '@eslint-community/regexpp': 4.12.1
       comment-parser: 1.4.1
       eslint: 9.23.0(jiti@2.4.2)
@@ -4783,7 +4786,7 @@ snapshots:
   eslint-plugin-unicorn@58.0.0(eslint@9.23.0(jiti@2.4.2)):
     dependencies:
       '@babel/helper-validator-identifier': 7.25.9
-      '@eslint-community/eslint-utils': 4.5.1(eslint@9.23.0(jiti@2.4.2))
+      '@eslint-community/eslint-utils': 4.9.1(eslint@9.23.0(jiti@2.4.2))
       '@eslint/plugin-kit': 0.2.7
       ci-info: 4.2.0
       clean-regexp: 1.0.0
@@ -4803,7 +4806,7 @@ snapshots:
 
   eslint-plugin-vue@10.0.0(eslint@9.23.0(jiti@2.4.2))(vue-eslint-parser@10.1.1(eslint@9.23.0(jiti@2.4.2))):
     dependencies:
-      '@eslint-community/eslint-utils': 4.5.1(eslint@9.23.0(jiti@2.4.2))
+      '@eslint-community/eslint-utils': 4.9.1(eslint@9.23.0(jiti@2.4.2))
       eslint: 9.23.0(jiti@2.4.2)
       natural-compare: 1.4.0
       nth-check: 2.1.1
@@ -4828,7 +4831,7 @@ snapshots:
 
   eslint@9.23.0(jiti@2.4.2):
     dependencies:
-      '@eslint-community/eslint-utils': 4.5.1(eslint@9.23.0(jiti@2.4.2))
+      '@eslint-community/eslint-utils': 4.9.1(eslint@9.23.0(jiti@2.4.2))
       '@eslint-community/regexpp': 4.12.1
       '@eslint/config-array': 0.19.2
       '@eslint/config-helpers': 0.2.0
