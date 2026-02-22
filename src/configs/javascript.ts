@@ -18,7 +18,7 @@ export function javascriptRules(options: Options): Partial<Linter.RulesRecord> {
     'no-unsafe-finally': ['error'],
     'no-array-constructor': ['error'],
     'yoda': 'error',
-    'curly': 'error',
+    'curly': 'off',
 
     // 'complexity': ['error', options.complexity],
     'no-shadow': [
