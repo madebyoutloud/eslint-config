@@ -64,7 +64,7 @@ export function createConfig(opts: UserOptions = {}): FlatConfigComposer<Linter.
 function resolveOptions(options: UserOptions = {}): Options {
   return {
     globals: {
-      version: 'es2021',
+      version: 'es2022',
       browser: options.features?.vue ?? options.features?.react ?? false,
       node: true,
       ...options.globals,
@@ -81,7 +81,7 @@ function resolveOptions(options: UserOptions = {}): Options {
       indent: 2,
       maxLength: 120,
       maxLines: 100,
-      complexity: 7,
+      complexity: 10,
       maxDepth: 3,
       maxParams: 4,
       maxStatements: 20,

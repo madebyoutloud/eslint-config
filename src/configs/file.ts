@@ -1,4 +1,3 @@
-// @ts-expect-error missing types
 import checkFile from 'eslint-plugin-check-file'
 
 import type { Linter } from 'eslint'
