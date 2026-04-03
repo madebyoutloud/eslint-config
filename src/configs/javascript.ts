@@ -26,13 +26,13 @@ export function javascriptRules(options: Options): Partial<Linter.RulesRecord> {
         ignoreOnInitialization: true,
       },
     ],
-    'object-shorthand': 'error',
     ...(options.features.stylistic ? stylisticRules(options) : {}),
   }
 }
 
 function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
   return {
+    'object-shorthand': 'error',
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'max-depth': ['error', options.style.maxDepth],
     'outloud/max-params': ['error', { max: options.style.maxParams }],

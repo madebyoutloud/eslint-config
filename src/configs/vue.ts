@@ -87,9 +87,14 @@ export function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
     ],
     'vue/key-spacing': ['error', { afterColon: true, beforeColon: false }],
     'vue/keyword-spacing': ['error', { after: true, before: true }],
-    'vue/object-curly-newline': 'off',
+    'vue/object-curly-newline': [
+      'error', {
+        multiline: true,
+        consistent: true,
+      },
+    ],
     'vue/object-curly-spacing': ['error', 'always'],
-    'vue/object-property-newline': 'error',
+    'vue/object-property-newline': ['error', { allowAllPropertiesOnSameLine: true }],
     'vue/one-component-per-file': 'off',
     'vue/operator-linebreak': ['error', 'before'],
     'vue/padding-line-between-blocks': ['error', 'always'],
@@ -137,6 +142,7 @@ export function stylisticRules(options: Options): Partial<Linter.RulesRecord> {
     // 'vue/v-on-handler-style': ['error', ['method', 'inline']],
     'vue/prefer-true-attribute-shorthand': 'error',
     'vue/define-emits-declaration': ['error', 'type-literal'],
+    'vue/object-shorthand': 'error',
   }
 }
 
