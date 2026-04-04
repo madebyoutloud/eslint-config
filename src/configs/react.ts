@@ -2,6 +2,7 @@ import type { Linter } from 'eslint'
 import type { Options } from '../types.js'
 import { ensurePackages, interopDefault } from '../utils.js'
 
+// TODO: migrate to https://github.com/Rel1cx/eslint-react/tree/main
 export default async function react(_options: Options): Promise<Linter.Config[]> {
   await ensurePackages(['eslint-plugin-react', 'eslint-plugin-react-hooks'])
 
